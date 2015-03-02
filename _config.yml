@@ -1,0 +1,12 @@
+# Site settings
+title: Spring Engineering Blog
+#email: your-email@domain.com
+description: > # this means to ignore newlines until "baseurl:"
+  Our thoughts on engineering.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://engineering.shopspring.com" # the base hostname & protocol for your site
+twitter_username: spring
+github_username:  shopspring
+
+# Build settings
+markdown: kramdown
