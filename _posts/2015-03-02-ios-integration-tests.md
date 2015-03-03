@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "iOS Integration tests at Spring"
+title:  "Automated iOS Integration Testing in a real world consumer app - benefits, tradeoffs"
 date:   2015-03-02 19:29:22
 author: "Octavian Costache"
 ---
