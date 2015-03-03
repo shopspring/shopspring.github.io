@@ -10,8 +10,15 @@ layout: default
         <a href="{{ post.url | prepend: site.baseurl }}" class="post-link">
           <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</p>
           <h3 class="h2 post-title">{{ post.title }}</h3>
-          <p class="post-summary">{{ post.summary }}</p>
         </a>
+        <p class="post-summary">
+          {% if post.content contains '<!--more-->' %}
+            {{ post.content | split:'<!--more-->' | first }}
+            <p><a href="{{ post.url }}">Continue reading</a></p>
+          {% else %}
+            {{ post.content }}
+          {% endif %}
+        </p>
       </div>
     {% endfor %}
   </div>
