@@ -13,6 +13,10 @@ Testing an app and its backends manually is very time consuming, and when we did
 
 Writing and maintaining tests can sometimes feel like a distraction, but if you integrate them into your development process we believe that the benefits are worth it.
 
+Before going further, wanted to share a video of how our tests look like when they are running. Our whole suite of tests takes about 10 minutes, so I’ve cut the video down to only a minute.
+
+<iframe width="768" height="505" src="https://www.youtube.com/embed/-UVkVXbX8zw" frameborder="0" allowfullscreen></iframe>
+
 Early on we decided to focus on **end-to-end tests** as opposed to unit tests. This choice was a natural one for us:
 
 + as a pragmatic engineering team we wanted to get as much code coverage with as little work as possible.
@@ -23,10 +27,6 @@ Early on we decided to focus on **end-to-end tests** as opposed to unit tests. T
 In order to run end-to-end tests, we’ve created from early on a setup that allows us to run our entire stack locally.
 
 We run each binary in “test” mode, on top of a local test database (separate from the dev database), with binaries exposing paths like `/tests/setup` and `/tests/teardown` to be called by the app.
-
-Before going further, wanted to share a video of how our tests look like when they are running. Our whole suite of tests takes about 10 minutes, so I’ve cut the video down to only a minute.
-
-<iframe width="768" height="505" src="https://www.youtube.com/embed/-UVkVXbX8zw" frameborder="0" allowfullscreen></iframe>
 
 #### Setting up the app
 
