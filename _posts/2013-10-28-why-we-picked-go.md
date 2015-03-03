@@ -91,3 +91,5 @@ We love Go and have no regrets - and after talking with a [few other startups](h
 
 
 If you want to learn more we'd love to [hear from you](mailto:hey@shopspring.com) and if you'd want to build Go as a full-time job - [we're hiring](https://spring.recruiterbox.com/).
+
+*Thanks to Geoff Stearns, Dave Cheney, Andy Bonventre, Jim Grandpre and Cosmin Negruseri for reading drafts of this.*
