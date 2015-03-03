@@ -1,12 +1,41 @@
 # Site settings
 title: Spring Engineering Blog
-#email: your-email@domain.com
 description: > # this means to ignore newlines until "baseurl:"
   Our thoughts on engineering.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://engineering.shopspring.com" # the base hostname & protocol for your site
+
+# Google analytics
+google_analytics:
+
+# Optional features
+animated:           false
+show_related_posts: false
+show_post_footers:  false
+
+# Disqus post comments
+# (leave blank to disable Disqus)
+disqus_shortname:
+
+# Social icons
+show_social_icons: true
 twitter_username: spring
 github_username:  shopspring
+stackoverflow_id:
+google_plus_id:
+linkedin_username:
+bitcoin_url:
+paypal_url:
+flattr_button:
+
+# Jobs page
+jobs_url: 'https://spring.recruiterbox.com/'
 
 # Build settings
-markdown: kramdown
+markdown:     redcarpet
+redcarpet:
+  extensions: ['smart', 'tables', 'with_toc_data']
+permalink:    pretty
+paginate:     3
+sass:
+  compressed: true

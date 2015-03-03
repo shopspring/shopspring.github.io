@@ -10,4 +10,4 @@ Our office is a unique hybrid of engineers and our brand team. Though our backgr
 
 We provide our employees with a happy, productive workplace, and we’re constantly improving! We keep a stocked fridge, bring in breakfast 3 times a week, lunch on Tuesdays and Thursdays. We love karaoke, our kickball team, and our office pup, Gizmo.
 
-If this sounds good, we're hiring! For a list of current opportunities, please [visit our jobs page](https://spring.recruiterbox.com/).
+If this sounds good, [we're hiring]({{ site.jobs_url }})! For a list of current opportunities, please [visit our jobs page]({{ site.jobs_url }}).
