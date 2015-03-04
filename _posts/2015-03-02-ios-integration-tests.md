@@ -30,7 +30,7 @@ We run each binary in “test” mode, on top of a local test database (separate
 
 #### Setting up the app
 
-We picked [KIF](https://github.com/kif-framework/KIF) as a framework for a few reasons. It’s [easy enough to integrate](https://github.com/kif-framework/KIF#installation-from-github), supports the core actions we needed (waiting for views, tapping on views) and it’s easy to extend to other actions. KIF gives us access to resetting the app in between tests easily, and because of it’s excellent integration with Xcode it allows the developer to debug code as part of a test run.
+We picked [KIF](https://github.com/kif-framework/KIF) as a framework for a few reasons. It’s [easy enough to integrate](https://github.com/kif-framework/KIF#installation-from-github), supports the core actions we needed (waiting for views, tapping on views) and it’s easy to extend to other actions. KIF gives us access to resetting the app in between tests easily, and because of its excellent integration with Xcode it allows the developer to debug code as part of a test run.
 
 KIF tests run as part of the app, on the main run thread, and with access to the entire app as it is running. Because of that we can control the `/setup` and `/teardown` of tests - we can log the user out, clean up app state, clean up the singletons we have and the data they store (like our event tracking).
 
