@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "iOS Integration tests at Spring"
+title:  "Automated iOS Integration Testing in a real world consumer app - at Spring"
 date:   2015-03-02 19:29:22
 author: "Octavian Costache"
 ---
@@ -130,3 +130,4 @@ We’re looking forward to evolving  this is going to look a year from now. Unti
 
 If you want to learn more we'd love to [hear from you](mailto:hey@shopspring.com) and if you'd want to work on one of Apple's Best Apps of 2014 as a full-time job - [we're hiring](https://spring.recruiterbox.com/).
 
+*Thanks to Bryan Irace, Brian Bonczek, Anoop Ranganath and Adam Ernst for reading drafts of this.*
