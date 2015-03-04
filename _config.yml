@@ -6,7 +6,7 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://engineering.shopspring.com" # the base hostname & protocol for your site
 
 # Google analytics
-google_analytics:
+google_analytics: 'UA-47172130-9'
 
 # Optional features
 animated:           false
