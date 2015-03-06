@@ -22,13 +22,13 @@ Early on we decided to focus on **end-to-end tests** as opposed to unit tests. T
 + as a pragmatic engineering team we wanted to get as much code coverage with as little work as possible.
 + we knew what we wanted to build product wise, but our backends were under heavy development and prone to frequent refactorings.
 
-#### Broad level overview of our testing infrastructure
+## Broad level overview of our testing infrastructure
 
 In order to run end-to-end tests, we’ve created from early on a setup that allows us to run our entire stack locally.
 
 We run each binary in “test” mode, on top of a local test database (separate from the dev database), with binaries exposing paths like `/tests/setup` and `/tests/teardown` to be called by the app.
 
-#### Setting up the app
+## Setting up the app
 
 We picked [KIF](https://github.com/kif-framework/KIF) as a framework for a few reasons. It’s [easy enough to integrate](https://github.com/kif-framework/KIF#installation-from-github), supports the core actions we needed (waiting for views, tapping on views) and it’s easy to extend to other actions. KIF gives us access to resetting the app in between tests easily, and because of its excellent integration with Xcode it allows the developer to debug code as part of a test run.
 
@@ -94,7 +94,7 @@ Notice how at the beginning of every test we take the following steps:
 + **make a request to `localhost:3000/tests/setup?test=testBrandPageFollowing`** which knows how to create the right data that this test expects (see next section)
 + **initialize the app to the home state** - for us a feed of products with the user being logged in.
 
-#### What the server side looks like
+## What the server side looks like
 
 Server side we’re running the entire stack that the app depends on in “test” mode. What this means in practice is that we have a `“-run_mode=test”` flag on our binaries that, when set, will expose the three paths that we need - `/tests/reset`, `/tests/setup` and /tests/teardown.
 
@@ -104,7 +104,7 @@ Server side we’re running the entire stack that the app depends on in “test�
 
 + **The `/tests/teardown?name=testNameHere` is used to make assertions about server side effects** that we expect from the app - most importantly our data tracking. <p>When run in Test Mode our backends use a mock SpringEventLog that records all the data that we send down from the app - and the teardown method can have expectations for the number of events that we expect to be sent, and some of the contents of those events (if that content is important to the test). <p>We consider this an amazing benefit of this piece of infrastructure - having to make sure manually that the app you’re about to release tracks the right data is something very time consuming and difficult to get right.
 
-#### How our setup ties everything together
+## How our setup ties everything together
 
 Tests become a burden on a team unless they are tied and embedded into your team’s development process. 
 
@@ -114,7 +114,7 @@ We use [Phabricator](http://phabricator.org) for code reviews - so we tied it al
 
 Phabricator is not difficult to extend into doing this, though it does take a little bit of tinkering around to get it right. Let us know if you are interested in that [over email](mailto:hey@shopspring.com), and we can share what we’ve learned - but this is outside the scope of this blog post.
 
-#### Always room for improvement
+## Always room for improvement
 
 Right now our tests take about 10 minutes to run. This is somewhat slow and is causing some unhappiness on our engineering team - and will only increase as we add more tests. 
 
@@ -122,7 +122,7 @@ The tests are not easily parallelizable, both due to the stateful way we Set Up 
 
 But even so, after two years it seems like we're not feeling huge pains and this is holding up pretty well.
 
-#### Closing thoughts
+## Closing thoughts
 
 These tests have been incredibly useful for us in allowing us to move fast and with confidence, and we're excited to share what we've done with the world in the hope that it will inspire other people to do the same.
 

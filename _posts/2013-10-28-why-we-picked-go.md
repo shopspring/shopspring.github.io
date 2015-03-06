@@ -15,7 +15,7 @@ We picked Go as the language of choice from very early on.
 
 Such choices can have significant impact on a business so I wanted to write a blog post about how [Spring](http://shopspring.com) made this choice, touch upon a few of the small issues we've encountered in the process and show how in the end it proved to be the right choice.
 
-### How we first became interested in GoLang
+## How we first became interested in GoLang
 
 We wanted something easy to understand for new developers, fast and with a good toolset for debugging and performance tuning.
 
@@ -23,7 +23,7 @@ Like all tools, all languages ultimately are good at certain things and not grea
 
 Go claims to address these exact needs - so we felt we needed to look into it.
 
-### First step - we did our homework
+## First step - we did our homework
 
 The Go authors do a great job explaining language design choices, so we spent a few days [reading about Go](http://golang.org/doc/).
 
@@ -31,7 +31,7 @@ For some of our concerns the answers became obvious early on - significantly fas
 
 We made a list of Pros and Cons to make sure we're not missing anything.
 
-#### PROS
+### PROS
 
 + fewer bugs due to stricter code checking upfront - type checked, compiled
 + easy to [profile for speed and memory leaks](http://blog.golang.org/profiling-go-programs)
@@ -44,7 +44,7 @@ We made a list of Pros and Cons to make sure we're not missing anything.
 + could help recruiting engineers excited about good new tech
 + [active community](https://groups.google.com/forum/#!forum/golang-nuts)
 
-#### CONS
+### CONS
 
 + not as many libraries - risk early on when dev speed important
 + cost for new devs to pick up Go
@@ -57,13 +57,13 @@ There were still open questions.
 
 We needed available libraries for common usecases, we wanted answers when we get stuck and we wanted to move fast. We wanted to understand the costs first hand, at least to some extent.
 
-### Second step - we eased into it
+## Second step - we eased into it
 
 We built a small binary that powers the search autocomplete functionality in our app. Small enough, self-contained, lots of touch points with our existing infrastructure and somewhat independent.
 
 We wanted to see if our open questions would be addressed in this trial period - we aimed for about a month or two - while maintaining our small Go experiment.
 
-### Third step - hands on experience, make a decision
+## Third step - hands on experience, make a decision
 
 [StackOverflow](http://stackoverflow.com/) is a very useful resource when you're stuck anything engineering related, but it hasn't reached critical mass for GoLang. Fortunately the [golang-nuts mailing list](https://groups.google.com/forum/#!forum/golang-nuts) is absolutely great. We asked and we were impressed with the quality and turn-around time of some very [good](https://groups.google.com/d/msg/golang-nuts/6hpUErAfMHI/X0bHeoZyfz0J) [answers](https://groups.google.com/d/msg/golang-nuts/6tyCz7Tc8Ow/1BCkkBWnTLEJ). Check!
 
@@ -77,7 +77,7 @@ Because of its lack of magic we needed to extend Gorp with some subtle logic of 
 
 We spend more time handling errors, but honestly that feels like the right thing to do.
 
-### Conclusion - GO!
+## Conclusion - GO!
 
 Despite paying some small costs, we feel that overall Go is paying off really nicely.
 
