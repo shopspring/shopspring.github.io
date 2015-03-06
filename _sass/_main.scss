@@ -19,6 +19,7 @@ body {
 
 html, body {
   height: 100%;
+  font-size: 16px;
 }
 
 img {
@@ -41,7 +42,7 @@ img {
 }
 
 body {
-  font-size: 1.5rem;
+  font-size: 1rem;
 
           box-sizing: border-box;
      -moz-box-sizing: border-box;
@@ -269,15 +270,15 @@ code {
 }
 
 pre {
-  padding: 1.125em;
-  font-size: 1.125rem;
+  padding: 1.0em;
+  font-size: 1.0rem;
   line-height: 1.11;
   overflow-x: scroll;
   margin-bottom: 0.88em;
 }
 
 .highlight .p {
-  font-size: 1.125rem;
+  font-size: 0.875rem;
   line-height: 1;
 }
 
@@ -345,37 +346,37 @@ h6,
 
   .h1,
   h1 {
-    font-size: 3.250rem;
+    font-size: 2.25rem;
   }
 
   .h2,
   h2 {
-    font-size: 2.298rem;
+    font-size: 1.5rem;
   }
 
   .h3,
   h3 {
-    font-size: 1.625rem;
+    font-size: 1.125rem;
   }
 
   .h4,
   h4 {
-    font-size: 1.150rem;
+    font-size: 0.875rem;
   }
 
   .p,
   p,
   li {
-    font-size: 1.25rem;
-    line-height: 1.8;
+    font-size: 1.0rem;
+    line-height: 1.625;
   }
 
   .small {
-    font-size: 1rem;
+    font-size: 0.825rem;
   }
 
   table {
-    font-size: 1.25rem;
+    font-size: 1.0rem;
   }
 
   .post-link .post-title {
@@ -404,22 +405,29 @@ h6,
 
   .h1,
   h1 {
-    font-size: 2.827rem;
+    font-size: 2rem;
   }
 
   .h2,
   h2 {
-    font-size: 1.999rem;
+    font-size: 1.625rem;
   }
 
   .h3,
   h3 {
-    font-size: 1.413rem;
+    font-size: 1.375rem;
   }
 
   .h4,
   h4 {
-    font-size: 1rem;
+    font-size: 1.125rem;
+  }
+
+  .p,
+  p,
+  li {
+    font-size: 1.0rem;
+    line-height: 1.625;
   }
 
   .site-header {
@@ -447,22 +455,29 @@ h6,
 @media screen and (min-width: 64em) {
   .h1,
   h1 {
-    font-size: 4.498rem;
+    font-size: 2.25rem;
   }
 
   .h2,
   h2 {
-    font-size: 3.18rem;
+    font-size: 1.5rem;
   }
 
   .h3,
   h3 {
-    font-size: 2.249rem;
+    font-size: 1.125rem;
   }
 
   .h4,
   h4 {
-    font-size: 1.591rem;
+    font-size: 0.875rem;
+  }
+
+  .p,
+  p,
+  li {
+    font-size: 1.0rem;
+    line-height: 1.875;
   }
 
   .posts .post-meta {
