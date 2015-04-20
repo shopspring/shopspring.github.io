@@ -7,7 +7,7 @@ author: "Octavian Costache"
 
 Ever since we started [Spring](http://shopspring.com) we’ve set up a [continuous build](http://jenkins-ci.org/) and integration tests. We decided to start testing when our team was two engineers and we knew what we were building.
  
-Testing an app and its backends manually is very time consuming, and when we did find critical issues we wanted to guard ourselves against breaking them a second time. We believe that having tests allowed us to move more predictably and faster over time.
+Testing an app and its backends manually is very time-consuming, and when we did find critical issues we wanted to guard ourselves against breaking them a second time. We believe that having tests allowed us to move more predictably and faster over time.
 
 <!--more-->
 
@@ -20,11 +20,11 @@ Before going further, wanted to share a video of how our tests look like when th
 Early on we decided to focus on **end-to-end tests** as opposed to unit tests. This choice was a natural one for us:
 
 + as a pragmatic engineering team we wanted to get as much code coverage with as little work as possible.
-+ we knew what we wanted to build product wise, but our backends were under heavy development and prone to frequent refactorings.
++ we knew what we wanted to build product-wise, but our backends were under heavy development and prone to frequent refactorings.
 
 ## Broad level overview of our testing infrastructure
 
-In order to run end-to-end tests, we’ve created from early on a setup that allows us to run our entire stack locally.
+In order to run end-to-end tests, from early on, we created a setup that would us to run our entire stack locally.
 
 We run each binary in “test” mode, on top of a local test database (separate from the dev database), with binaries exposing paths like `/tests/setup` and `/tests/teardown` to be called by the app.
 
@@ -46,11 +46,11 @@ After giving your views accessibility labels, you use the KIF APIs to describe a
 
 The most common actions that we use are tapping on views and entering text in text fields, and the two most common outcomes are verifying that a view is on the screen, or verifying that a view is no longer on the screen.
 
-For advanced test scenarios KIF also allows you to scroll views programmatically, tap the status bar, enter text.
+For advanced test scenarios, KIF also allows you to scroll views programmatically, tap the status bar, and enter text.
 
-There might be other frameworks that are good choices, comparing them is not the goal of this blog post - it’s possible that others have some of these properties too.
+(While there might be other frameworks that are also good choices, it isn't the goal of the blog post to compare them - other frameworks may have some of these properties too.)
 
-Here’s how a test at Spring looks like:
+Here’s what a test at Spring looks like:
 
 {% highlight objc %}
 // Same name we will use for the Setup function on the server.
@@ -68,7 +68,7 @@ Here’s how a test at Spring looks like:
 }
 {% endhighlight %}
 
-Here’s how the SetUp method looks like:
+Here’s what the SetUp method looks like:
 
 {% highlight objc %}
 // Knows how to call /reset and /setup on our server running in test mode
@@ -96,21 +96,21 @@ Notice how at the beginning of every test we take the following steps:
 
 ## What the server side looks like
 
-Server side we’re running the entire stack that the app depends on in “test” mode. What this means in practice is that we have a `“-run_mode=test”` flag on our binaries that, when set, will expose the three paths that we need - `/tests/reset`, `/tests/setup` and /tests/teardown.
+Server-side, we’re running the entire stack that the app depends on in “test” mode. What this means in practice is that we have a `“-run_mode=test”` flag on our binaries that, when set, will expose the three paths that we need - `/tests/reset`, `/tests/setup` and /tests/teardown.
 
-+ **The reset is simple**, it truncates our DB. This code is well guarded and there are multiple checks in every function call - we really don’t want this code to make it to production.
++ **The reset is simple**: it truncates our DB. This code is well guarded and there are multiple checks in every function call - we really don’t want this code to make it to production.
 
-+ **The `/tests/setup` path takes a parameter `?name=testNameHere`** and, through some magic, calls a function with the same name on our backends that’s part of the SetUps singleton. That method inserts the right expected setup data in the database, and once that’s done the KIF test can initialize the app and expect that the data that we’ve just created shows up in the right places.
++ **The `/tests/setup` path takes a parameter `?name=testNameHere`** and, through some magic, calls a function with the same name on our backends that’s part of the SetUps singleton. That method inserts the right expected setup data in the database, and once that’s done, the KIF test can initialize the app and expect that the data that we’ve just created shows up in the right places.
 
-+ **The `/tests/teardown?name=testNameHere` is used to make assertions about server side effects** that we expect from the app - most importantly our data tracking. <p>When run in Test Mode our backends use a mock SpringEventLog that records all the data that we send down from the app - and the teardown method can have expectations for the number of events that we expect to be sent, and some of the contents of those events (if that content is important to the test). <p>We consider this an amazing benefit of this piece of infrastructure - having to make sure manually that the app you’re about to release tracks the right data is something very time consuming and difficult to get right.
++ **The `/tests/teardown?name=testNameHere` is used to make assertions about server-side effects** that we expect from the app - most importantly, our data tracking. <p>When run in Test Mode our backends use a mock SpringEventLog that records all the data that we send down from the app - and the teardown method can have expectations for the number of events that we expect to be sent, and some of the contents of those events (if that content is important to the test). <p>We consider this an amazing benefit of this piece of infrastructure - having to make sure manually that the app you’re about to release tracks the right data is something very time consuming and difficult to get right.
 
 ## How our setup ties everything together
 
 Tests become a burden on a team unless they are tied and embedded into your team’s development process. 
 
-Having the tests run as part of your code review process, and having a continuous build that the team is always willing to fix is important, otherwise tests go easily out of date and easily become failing tests that nobody wants to fix.
+Having the tests run as part of your code review process, and having a continuous build that the team is always willing to fix, is important; otherwise, tests go easily out of date and easily become failing tests that nobody wants to fix.
 
-We use [Phabricator](http://phabricator.org) for code reviews - so we tied it all together to run whenever a [diff is being sent for review](http://phabricator.org/applications/differential/), so that the reviewer sees the results of all the tests that have run.
+We use [Phabricator](http://phabricator.org) for code reviews - our tests run whenever a [diff is sent for review](http://phabricator.org/applications/differential/), and reviewers sees all of the results.
 
 Phabricator is not difficult to extend into doing this, though it does take a little bit of tinkering around to get it right. Let us know if you are interested in that [over email](mailto:hey@shopspring.com), and we can share what we’ve learned - but this is outside the scope of this blog post.
 
@@ -126,7 +126,7 @@ But even so, after two years it seems like we're not feeling huge pains and this
 
 These tests have been incredibly useful for us in allowing us to move fast and with confidence, and we're excited to share what we've done with the world in the hope that it will inspire other people to do the same.
 
-We’re looking forward to evolving  this is going to look a year from now. Until then, I hope this blog post was useful. 
+We’re looking forward to watching our testing process evolve, and seeing what it will look like a year from now. Until then, I hope this blog post was useful.
 
 If you want to learn more we'd love to [hear from you](mailto:hey@shopspring.com) and if you'd want to work on one of Apple's Best Apps of 2014 as a full-time job - [we're hiring](https://spring.recruiterbox.com/).
 
