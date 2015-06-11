@@ -32,7 +32,9 @@ flattr_button:
 jobs_url: 'https://spring.recruiterbox.com/'
 
 # Build settings
-markdown:     redcarpet
+markdown:     rdiscount
+rdiscount:
+  extensions: []
 redcarpet:
   extensions: ['smart', 'tables', 'with_toc_data']
 permalink:    pretty
